@@ -6,7 +6,7 @@
   <script>
     function sendEventToParent() {
       window.parent.postMessage(
-        { event: 'iframeButtonClick' },
+        { event: 'iframeButtonClick', eventCategory : 'test' },
        'https://habib-gandhi.github.io' // Replace with actual parent domain
       );
     }
