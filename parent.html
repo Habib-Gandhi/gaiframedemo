@@ -12,7 +12,7 @@
 
       if (e.data && e.data.event) {
         console.log('Received message from iframe:', e.data);
-        window.dataLayer.push({ event: e.data.event });
+        window.dataLayer.push(e.data);
       }
     });
   </script>
