@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Parent Page - iFrame Tracking</title>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    window.addEventListener('message', function(e) {
+      // Replace with your actual iframe origin
+      if (e.origin !== 'https://your-iframe-domain.com') return;
+
+      if (e.data && e.data.event) {
+        console.log('Received message from iframe:', e.data);
+        window.dataLayer.push({ event: e.data.event });
+      }
+    });
+  </script>
+</head>
+<body>
+  <h1>Parent Page</h1>
+  <p>This page embeds an iFrame and listens for postMessage events.</p>
+
+  <!-- Replace src with your actual iframe page URL -->
+  <iframe src="iframe.html" width="600" height="300" style="border:1px solid #ccc;"></iframe>
+</body>
+</html>
